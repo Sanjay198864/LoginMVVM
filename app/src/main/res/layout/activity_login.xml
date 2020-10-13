@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="loginModel"
+            type="com.e.myapplication.viewModel.LoginViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10dp"
+            android:text="@string/screen_title"
+            android:textSize="@dimen/_20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_30dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edt_email"
+                style="@style/EditTextStyle"
+                android:hint="@string/email"
+                android:inputType="textFilter"
+                android:maxLength="64"
+                android:text="@={loginModel.email}"
+                tools:ignore="Autofill,InconsistentLayout,RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/edt_password"
+                style="@style/EditTextStyle"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:layout_marginTop="@dimen/_10dp"
+                android:text="@={loginModel.password}"
+                tools:ignore="Autofill,RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/edt_confirm_password"
+                style="@style/EditTextStyle"
+                android:hint="@string/new_password"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:layout_marginTop="@dimen/_10dp"
+                android:text="@={loginModel.confirmPassword}"
+                tools:ignore="Autofill,RtlSymmetry" />
+
+            <Button
+                android:id="@+id/btn_submit"
+                style="@style/ButtonStylePortrait"
+                android:layout_marginTop="@dimen/_30dp"
+                android:layout_marginBottom="@dimen/_20dp"
+                android:background="@android:color/holo_blue_light"
+                android:onClick="onClick"
+                android:text="@string/submit" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
